@@ -20,5 +20,6 @@ from app import views as app_views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^newhire/', app_views.index),
-    url(r'^get-new-hire/', app_views.get_new_hire)
+    url(r'^get-new-hire/', app_views.get_new_hire),
+    url(r'^modified-rows/', app_views.modified_rows)
 ]

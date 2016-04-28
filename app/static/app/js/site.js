@@ -2,7 +2,7 @@ var editor; // use a global for the submit and return data rendering in the exam
 
 $(document).ready(function() {
     editor = new $.fn.dataTable.Editor( {
-        ajax: "#",
+        ajax: "/modified-rows/",
         table: "#table-new-hire",
         fields: [ {
                 label: "New Hire ID:",
@@ -20,10 +20,6 @@ $(document).ready(function() {
                 label: "Onboard Time:",
                 name: "onboard_time",
                 type: "datetime"
-            }, {
-                label: "Created Time:",
-                name: "created_time",
-                type: "datetime"
             },
         ]
     } );
@@ -34,8 +30,11 @@ $(document).ready(function() {
     } );
 
     $('#table-new-hire').DataTable( {
-//        dom: "Bfrtip",
-        ajax: "#",
+        dom: "Bfrtip",
+        ajax:{
+            url: "/get-new-hire/",
+            type: 'POST',
+        },
         columns: [
             { data: "DT_RowId"},
             { data: "new_hire_id" },
