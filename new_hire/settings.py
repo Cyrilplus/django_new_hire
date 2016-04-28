@@ -131,4 +131,8 @@ BOWER_INSTALLED_APPS = (
     'bootstrap',
     'datatables.net',
     'datatables.net-dt',
+    'datatables.net-buttons',
+    'datatables.net-buttons-dt',
+    'datatables.net-select',
+    'datatables.net-select-dt',
 )

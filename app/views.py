@@ -15,5 +15,4 @@ def index(request):
 @csrf_exempt
 def get_new_hire(request):
     result = u'{"data":' + serializers.serialize('json', Rows.objects.all()) + u'}'
-    print type(result)
     return HttpResponse(result, content_type='application/json')
