@@ -1,20 +1,17 @@
+import datetime
 import json
+import re
 
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
 
 from models import Rows
-import re
-from sendmail import SendMail
-import datetime
 
 
 # Create your views here.l
 
 def index(request):
-    email = SendMail()
-    email.send2manager()
     return render(request, 'app/index.html')
 
 
