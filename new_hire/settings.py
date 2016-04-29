@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'djangobower',
+    'djcelery',
     'app',
 ]
 
@@ -79,7 +80,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'new_hire_db',
         'USER': 'root',
-        'PASSWORD': 'jj'
+        'PASSWORD': ''
     }
 }
 
@@ -136,3 +137,13 @@ BOWER_INSTALLED_APPS = (
     'datatables.net-select',
     'datatables.net-select-dt',
 )
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'outbound.cisco.com'
+DEFAULT_FROM_EMAIL = 'yonie@cisco.com'
+
+import djcelery
+djcelery.setup_loader()
+
+CELERY_RESULT_BACKEND = 'djcelery.backends.database:DatabaseBackend'
+CELERYBEAT_SCHEDULER = 'djcelery.schedulers.DatabaseScheduler'
